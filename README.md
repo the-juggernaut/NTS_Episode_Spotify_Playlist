@@ -1,7 +1,7 @@
 # NTS_Episode_Spotify_Playlist
-Python script to create Spotify Playlists from an NTS Live Radio Episode tracklist
+A simple python script to create Spotify Playlists from an NTS-Live Radio Episode's tracklist.
 
-Requirements 
+**Requirements** 
 - Spotify developer app instance 
 - Beautiful Soup 4, Spotipy
 
