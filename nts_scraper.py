@@ -36,13 +36,14 @@ def get_tracklist(url):
 def spotify_playlist(url):
     #playlist init
     playlist_name = url.split('/')[-1]
-    playlist_description = 'Spotify Playlist for '+str(url)
+    playlist_description = "Playlist of the NTS Live session created using github.com/the-juggernaut/NTS_Episode_Spotify_Playlist"
     
     df = get_tracklist(url)
 
     # Create the playlist
     playlist = sp.user_playlist_create(sp.current_user()['id'], playlist_name, public=False, description=playlist_description)
     playlist_id = playlist['id']
+    print(f"Playlist named {playlist_name} should appear in your library soon")
     for index, row in df.iterrows():
         track_name = row['Track Name']
         artist_name = row['Artist Name']
@@ -59,7 +60,7 @@ def spotify_playlist(url):
 
 # spotify_playlist('https://www.nts.live/shows/floating-points/episodes/floating-points-28th-august-2023')
 
-parser = argparse.ArgumentParser(description='NTS-Radio Tracklist to Spotify playlist Scraper, run the scripy with an NTS episode as an argument')
+parser = argparse.ArgumentParser(description='NTS-Radio Tracklist to Spotify playlist Scraper, run the script with an NTS episode as an argument')
 parser.add_argument('Episode_URL', type=str, help='URL for the NTS Radio Episode')
 args = parser.parse_args()
 try:
